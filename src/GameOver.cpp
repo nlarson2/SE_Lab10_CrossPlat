@@ -26,7 +26,7 @@ GameOver::GameOver(int _xres, int _yres) {
     exitClicked = 0;
     xres = _xres;
     yres = _yres;
-    img = new Image("images/LOSE.png");
+    //img = new Image("images/LOSE.png");
     //position start button on the bottom middle of the screen
     exit.center[0] = xres/2.0f;
     exit.center[1] = yres/4.0f;
@@ -38,11 +38,13 @@ GameOver::GameOver(int _xres, int _yres) {
     exit.rgb[1] = 0;
     exit.rgb[2] = 0;
 
-    img->GenerateGLTexture(loserTexture);
+   // img->GenerateGLTexture(loserTexture);
+    
+    Image::GenerateGLTextureALPHA(loserTexture, "images/LOSE.png");
 }
 GameOver::~GameOver()
 {
-    delete img;
+    //delete img;
 }
 void GameOver::Draw()
 {
@@ -94,10 +96,12 @@ void GameOver::Draw()
         glVertex2f( w - 4,-h + 4);
     glEnd();
     glPopMatrix();
+    #ifndef WINDOWS
     Rect r;
     r.bot = (int)exit.center[1] - 5;
     r.left = (int)exit.center[0];;
     ggprint16(&r, 16, 0xFFFFFFFF, "RETURN TO MENU");
+    #endif
 };
 GameScene * GameOver::CheckMouse(int x, int y) 
 {

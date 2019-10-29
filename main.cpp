@@ -18,7 +18,11 @@
 #include <cstdlib>
 #include <cstring>
 #include <stack>
+
+#ifndef WINDOWS
 #include "src/fonts.h"
+#endif
+
 #include "src/GameScene.h"
 #include "src/Menu.h"
 using namespace std;
@@ -178,7 +182,9 @@ void init_opengl(void)
     glClearColor(0.0, 0.0, 0.0, 1.0);
     //Insert Fonts
     glEnable(GL_TEXTURE_2D);
+    #ifndef WINDOWS
     initialize_fonts();
+    #endif
 }
 
 
@@ -214,9 +220,9 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 // ---------------------------------------------------------------------------------------------------------
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
-    
+    printf("keypress\n");
     //verify that there is a gamescene in the stack
-    if(!g->scene.empty()) {
+    if(!g->scene.empty() && action == GLFW_PRESS) {
 
         //get the top scene that is being displayed at this moment
         GameScene * sc = g->scene.top();

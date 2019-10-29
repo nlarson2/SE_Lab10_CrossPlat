@@ -142,8 +142,9 @@ static int map3[][102]={
 
 
 void Tile::initTile(const char * _imgSrc, bool _walkable){
-    Image img(_imgSrc);
-    img.GenerateGLTexture(texture);
+    /*Image img(_imgSrc);
+    img.GenerateGLTexture(texture);*/
+    Image::GenerateGLTextureALPHA(texture, _imgSrc);
     walkable = _walkable;
 }
 

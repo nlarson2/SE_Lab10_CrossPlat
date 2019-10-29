@@ -21,9 +21,9 @@ src/Winner.cpp src/GameOver.h src/GameOver.cpp src/GameScene.h
 ifeq ($(OS),Windows_NT)
 	g++ -g glad/src/glad.c main.cpp src/Image.cpp src/Menu.cpp src/Game.cpp \
 	src/Map.cpp src/Enemy.cpp src/Player.cpp src/Winner.cpp src/Battle.cpp \
-	src/GameOver.cpp libraries/libggfonts.a -L./glfwWindows/lib-mingw-w64 \
+	src/GameOver.cpp -Llibraries/ -Ilibrarires/-lggfonts  -L./glfwWindows/lib-mingw-w64 \
 	-lglfw3 -lopengl32 -lgdi32 -lkernel32 -lpthread -I./glad/include \
-	-I./glfwWindows/include -ogame
+	-I./glfwWindows/include -ogame  -DWINDOWS
 endif 
 ifeq ($(UNAME_S),Linux)
 	g++ -g glad/src/glad.c main.cpp src/Image.cpp src/Menu.cpp src/Game.cpp \

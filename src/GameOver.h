@@ -20,7 +20,6 @@ class GameOver : public GameScene {
     private:
         Box exit;
         GLuint loserTexture;
-        Image * img;
         bool exitClicked;
     public:
     GameOver(int _xres, int _yres);

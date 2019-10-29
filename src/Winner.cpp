@@ -19,7 +19,7 @@ Winner::Winner(int _xres, int _yres) {
     exitClicked = 0;
     xres = _xres;
     yres = _yres;
-    img = new Image("images/WIN.png");
+   //img = new Image("images/WIN.png");
     //position start button on the bottom middle of the screen
     exit.center[0] = xres/2.0f;
     exit.center[1] = yres/4.0f;
@@ -31,11 +31,12 @@ Winner::Winner(int _xres, int _yres) {
     exit.rgb[1] = 0;
     exit.rgb[2] = 0;
 
-    img->GenerateGLTexture(winnerTexture);
+    //img->GenerateGLTexture(winnerTexture);
+    Image::GenerateGLTextureALPHA(winnerTexture, "images/WIN.png");
 }
 Winner::~Winner()
 {
-    delete img;
+    //delete img;
 }
 void Winner::Draw()
 {
@@ -87,10 +88,12 @@ void Winner::Draw()
         glVertex2f( w - 4,-h + 4);
     glEnd();
     glPopMatrix();
+    #ifndef WINDOWS
     Rect r;
     r.bot = (int)exit.center[1] - 5;
     r.left = (int)exit.center[0];;
     ggprint16(&r, 16, 0xFFFFFFFF, "RETURN TO MENU");
+    #endif
 };
 GameScene * Winner::CheckMouse(int x, int y) 
 {

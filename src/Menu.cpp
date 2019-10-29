@@ -16,13 +16,14 @@ Modified Date:
 
 #include "Menu.h"
 #include "Game.h"
+#include "fonts.h"
 
 
 Menu::Menu(int _xres, int _yres)
 {
     xres = _xres;
     yres = _yres;
-    title = new Image("images/title.png");
+    //title = new Image("images/title.png");
     //position start button on the bottom middle of the screen
     start.center[0] = xres/2.0f;
     start.center[1] = yres/4.0f;
@@ -34,11 +35,12 @@ Menu::Menu(int _xres, int _yres)
     start.rgb[1] = 0;
     start.rgb[2] = 0;
 
-    title->GenerateGLTexture(titleTexture);
+    //title->GenerateGLTexture(titleTexture);
+    Image::GenerateGLTextureALPHA(titleTexture, "images/title.png");
 }
 Menu::~Menu()
 {
-    delete title;
+    //delete title;
 }
 void Menu::Draw()
 {
@@ -92,10 +94,12 @@ void Menu::Draw()
         glVertex2f( w - 4,-h + 4);
     glEnd();
     glPopMatrix();
+    #ifndef WINDOWS
     Rect r;
     r.bot = (int)start.center[1] - 5;
     r.left = (int)start.center[0];;
     ggprint16(&r, 16, 0xFFFFFFFF, "START");
+    #endif
 }
 
 

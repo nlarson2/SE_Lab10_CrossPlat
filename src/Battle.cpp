@@ -156,10 +156,12 @@ void Battle::Draw()
         glPopMatrix();
         glPopMatrix();
         glLoadIdentity();
+        #ifndef WINDOWS
         Rect r;
         r.bot = (int)headers[i].center[1] + 2 * h;
         r.left = (int)headers[i].center[0];;
         ggprint16(&r, 16, 0xFFFFFFFF, i == 0 ? "PLAYER":"ENEMY");
+        #endif
 
 
         /**********************Last Choice**********************************/
@@ -239,10 +241,12 @@ void Battle::Draw()
         glPopMatrix();
 
         glLoadIdentity();
+        #ifndef WINDOWS
         Rect r;
         r.bot = (int)buttons[i].center[1] - 5.0f;
         r.left = (int)buttons[i].center[0];;
         ggprint16(&r, 16, 0xFFFFFFFF, i == 0 ? "ROCK": i == 1 ? "PAPER" : "SCISSORS");
+        #endif
     }
 }
 GameScene * Battle::CheckMouse(int x, int y)

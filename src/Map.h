@@ -9,8 +9,8 @@ Date: 10/28/2019
 #ifndef MAP_H
 #define MAP_H
 
-#include <string>
 #include "Image.h"
+#include <string>
 
 struct Tile {
     GLuint texture;

@@ -16,7 +16,6 @@ Date: 10/28/2019
 class Menu : public GameScene{
     private: 
         Box start;
-        Image * title;
         GLuint titleTexture;
     public:
         Menu(int _xres, int _yres);

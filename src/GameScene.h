@@ -15,7 +15,9 @@ Modified Date:
 
 //#include <X11/keysym.h>
 #include "Image.h"
+#ifndef WINDOWS
 #include "fonts.h"
+#endif
 #include "glad/glad.h"
 #include <GL/gl.h>
 #include "GLFW/glfw3.h"

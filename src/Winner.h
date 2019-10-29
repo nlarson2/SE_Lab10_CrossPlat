@@ -15,7 +15,6 @@ class Winner : public GameScene {
     private:
         Box exit;
         GLuint winnerTexture;
-        Image * img;
         bool exitClicked;
     public:
     Winner(int _xres, int _yres);
